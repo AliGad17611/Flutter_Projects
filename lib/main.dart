@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: use_super_parameters, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -7,132 +7,199 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // ignore: use_super_parameters
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(useMaterial3: true),
       home: FacebookApp(),
     );
   }
 }
 
 class FacebookApp extends StatelessWidget {
-  const FacebookApp({super.key});
+  const FacebookApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: Colors.black,
-        backgroundColor: Colors.white,
-        elevation: 10,
-        title: Text(
-          "Facebook",
-          style: TextStyle(
-              fontSize: 30,
+        appBar: AppBar(
+          title: Text("facebook",
+              style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 27,
+                  fontWeight: FontWeight.w700)),
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(
+              Icons.menu,
               color: Colors.blueAccent,
-              fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            color: Colors.blueAccent,
-            Icons.menu,
-            size: 30,
+              size: 30,
+            ),
+            onPressed: () {},
           ),
-        ),
-        actions: [
-          IconButton(
-              color: Colors.blueAccent,
-              onPressed: () {},
-              icon: Icon(
-                Icons.message,
-                size: 25,
-              )),
-          IconButton(
-              color: Colors.blueAccent,
-              onPressed: () {},
+          actions: [
+            IconButton(
+                icon: Icon(
+                  Icons.message,
+                  color: Colors.blueAccent,
+                  size: 30,
+                ),
+                onPressed: () {}),
+            IconButton(
               icon: Icon(
                 Icons.search,
-                size: 28,
-              ))
-        ],
-      ),
-      body: Center(
-        child: Container(
-          width: 350,
-          height: 350,
-          padding: EdgeInsets.all(10),
-          color: Colors.blueGrey,
-          child: Stack(children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Container(
-                color: Colors.red[300],
-                height: 120,
-                width: 120,
-                alignment: Alignment.center,
-                child: Text("Ali",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
+                color: Colors.blueAccent,
+                size: 30,
               ),
+              onPressed: () {},
             ),
-            Positioned(
-              top: 0,
-              right: 0,
-              child: Container(
-                color: const Color.fromARGB(255, 68, 65, 38),
-                height: 120,
-                width: 120,
+          ],
+          backgroundColor: Colors.white,
+          elevation: 20,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 22),
                 alignment: Alignment.center,
-                child: Text("Gad",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              child: Container(
-                color: Colors.green[300],
-                height: 120,
-                width: 120,
-                alignment: Alignment.center,
-                child: Text("Ali",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                color: Color.fromARGB(255, 229, 115, 185),
-                height: 120,
-                width: 120,
-                alignment: Alignment.center,
-                child: Text("Gad",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
-              ),
-            ),
-            Center(
-              child: Positioned(
-                child: Container(
-                  color: const Color.fromARGB(255, 115, 159, 229),
-                  height: 140,
-                  width: 140,
-                  alignment: Alignment.center,
-                  child: Text("Eng",
-                      style: TextStyle(fontSize: 20, color: Colors.white)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.blueGrey,
+                ),
+                height: 322,
+                width: double.infinity,
+                child: Text(
+                  "Flutter Task 4",
+                  style: TextStyle(color: Colors.white, fontSize: 44),
                 ),
               ),
-            )
-          ]),
-        ),
-      ),
-    );
+              Container(
+                padding: EdgeInsets.all(20),
+                width: 250,
+                height: 450,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                      15), // 15 is radius, change to see the effect
+                  color: Colors.blueAccent, // change this to see the effect
+                ),
+                child: Wrap(
+                    direction: Axis.vertical,
+                    spacing: 10,
+                    alignment: WrapAlignment.center,
+                    runAlignment: WrapAlignment.center,
+                    runSpacing: 20,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "1",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          )),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "2",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          )),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "3",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          )),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "4",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          )),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "5",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          )),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(30)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.yellow[500]),
+                          ),
+                          child: Text(
+                            "6",
+                            style: TextStyle(color: Colors.white, fontSize: 40),
+                          ))
+                    ]),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.blueGrey,
+                ),
+                height: 322,
+                width: double.infinity,
+                child: Text(
+                  "Flutter Task 4",
+                  style: TextStyle(color: Colors.white, fontSize: 44),
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
