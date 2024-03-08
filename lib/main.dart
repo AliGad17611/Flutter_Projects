@@ -1,25 +1,28 @@
-// ignore_for_file: use_super_parameters, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  // ignore: use_super_parameters
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FacebookApp(),
+      theme: ThemeData.light(useMaterial3: true),
+      home: SimpleProject(),
     );
   }
 }
 
-class FacebookApp extends StatelessWidget {
-  const FacebookApp({Key? key}) : super(key: key);
+class SimpleProject extends StatelessWidget {
+  const SimpleProject({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,147 +62,73 @@ class FacebookApp extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 20,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 22),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.blueGrey,
-                ),
-                height: 322,
-                width: double.infinity,
-                child: Text(
-                  "Flutter Task 4",
-                  style: TextStyle(color: Colors.white, fontSize: 44),
-                ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(30),
+              child: Center(
+                child: Text("Ali Gad",
+                    style: TextStyle(
+                        fontSize: 50,
+                        fontFamily: "Baloo",
+                        color: Colors.blueAccent)),
               ),
-              Container(
-                padding: EdgeInsets.all(20),
-                width: 250,
-                height: 450,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      15), // 15 is radius, change to see the effect
-                  color: Colors.blueAccent, // change this to see the effect
-                ),
-                child: Wrap(
-                    direction: Axis.vertical,
-                    spacing: 10,
-                    alignment: WrapAlignment.center,
-                    runAlignment: WrapAlignment.center,
-                    runSpacing: 20,
-                    children: [
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "1",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "2",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "3",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "4",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "5",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(30)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.yellow[500]),
-                          ),
-                          child: Text(
-                            "6",
-                            style: TextStyle(color: Colors.white, fontSize: 40),
-                          ))
-                    ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.blueAccent,
+                          width: 3,
+                        )),
+                    padding: EdgeInsets.all(8),
+                    child: SvgPicture.asset(
+                      'assets/images/facebook.svg',
+                      height: 44,
+                      width: 44,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.blueAccent,
+                          width: 3,
+                        )),
+                    padding: EdgeInsets.all(8),
+                    child: SvgPicture.asset(
+                      'assets/images/insta.svg',
+                      height: 44,
+                      width: 44,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.blueAccent,
+                          width: 3,
+                        )),
+                    padding: EdgeInsets.all(8),
+                    child: SvgPicture.asset(
+                      'assets/images/twitter.svg',
+                      height: 44,
+                      width: 44,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.blueGrey,
-                ),
-                height: 322,
-                width: double.infinity,
-                child: Text(
-                  "Flutter Task 4",
-                  style: TextStyle(color: Colors.white, fontSize: 44),
-                ),
-              )
-            ],
-          ),
+            ),
+          ],
         ));
   }
 }
