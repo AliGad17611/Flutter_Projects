@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors, deprecated_member_use
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,108 +26,60 @@ class SimpleProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("facebook",
-              style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 27,
-                  fontWeight: FontWeight.w700)),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.blueAccent,
-              size: 30,
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Center(
+          child: Container(
+            width: 300,
+            decoration: BoxDecoration(
+              color: Colors.purple[100],
+              borderRadius: BorderRadius.circular(30),
             ),
-            onPressed: () {},
+            child: TextField(
+                decoration: InputDecoration(
+                    hintText: "Your Email : ",
+                    prefixIcon: Icon(Icons.person, color: Colors.purple),
+                    border: InputBorder.none)),
           ),
-          actions: [
-            IconButton(
-                icon: Icon(
-                  Icons.message,
-                  color: Colors.blueAccent,
-                  size: 30,
-                ),
-                onPressed: () {}),
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.blueAccent,
-                size: 30,
-              ),
-              onPressed: () {},
-            ),
-          ],
-          backgroundColor: Colors.white,
-          elevation: 20,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              padding: EdgeInsets.all(30),
+        SizedBox(height: 20),
+        Center(
+          child: Container(
+            width: 300,
+            decoration: BoxDecoration(
+              color: Colors.purple[100],
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: TextField(
+                decoration: InputDecoration(
+                    hintText: "Password : ",
+                    prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                    border: InputBorder.none)),
+          ),
+        ),
+        SizedBox(height: 20),
+        SizedBox(
+          width: 300,
+          child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.purple),
+                foregroundColor: MaterialStateProperty.all(Colors.white),
+              ),
               child: Center(
-                child: Text("Ali Gad",
-                    style: TextStyle(
-                        fontSize: 50,
-                        fontFamily: "Baloo",
-                        color: Colors.blueAccent)),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 50),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.blueAccent,
-                          width: 3,
-                        )),
-                    padding: EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/images/facebook.svg',
-                      height: 44,
-                      width: 44,
-                      color: Colors.blueAccent,
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.blueAccent,
-                          width: 3,
-                        )),
-                    padding: EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/images/insta.svg',
-                      height: 44,
-                      width: 44,
-                      color: Colors.blueAccent,
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.blueAccent,
-                          width: 3,
-                        )),
-                    padding: EdgeInsets.all(8),
-                    child: SvgPicture.asset(
-                      'assets/images/twitter.svg',
-                      height: 44,
-                      width: 44,
-                      color: Colors.blueAccent,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ));
+                  child: Text(
+                "login",
+                style: TextStyle(fontSize: 24),
+              ))),
+        )
+      ]),
+    );
   }
 }
+// hintText → String
+// labelText → String
+// labelStyle → TextStyle
+// border → InputBorder
+// border → OutlineInputBorder()
+// icon → Widget
+// prefixIcon → Widget
+// suffixIcon → Widget
